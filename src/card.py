@@ -19,6 +19,9 @@ class Card:
         raise self.OutOfRangeException
 
 
+# -------------------------------------------
+
+
 class CardTestCase(unittest.TestCase):
     def testSetValue(self):
         card = Card(1)
