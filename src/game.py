@@ -62,17 +62,8 @@ class Game:
         print(f"Players : {PLAYERS_COUNT}")
         print()
 
-        Renderer.renderAllCards(self.cards)
-
-        current_player_index = 0
-        self.playTurn(current_player_index)
-
-        Renderer.renderAllCards(self.cards)
-
-        current_player_index = 1
-        self.playTurn(current_player_index)
-
-        Renderer.renderAllCards(self.cards)
+        for current_player_index in range(PLAYERS_COUNT):
+            self.playTurn(current_player_index)
 
         print("------------------------")
 
