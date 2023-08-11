@@ -6,8 +6,10 @@
 #
 #
 
+import random
 import unittest
 
+from card import Card
 from column import Column
 from deck import Deck
 from direction import Direction
@@ -18,7 +20,8 @@ PLAYERS_COUNT = 5
 
 class Game:
     def __init__(self) -> None:
-        self.deck = Deck()
+        self.cards = self.generateCards()
+        self.deck = Deck(self.cards)
         self.players = [Hand() for _ in range(PLAYERS_COUNT)]
         self.columns = [
             Column(Direction.ASCENDING),
@@ -27,6 +30,14 @@ class Game:
             Column(Direction.DESCENDING),
         ]
 
+    def generateCards(self) -> list:
+        cards = list(Card(x) for x in range(1, 101))
+        random.shuffle(cards)
+        return cards
+
+    def renderAllCards(self):
+        pass
+
     def start(self):
         print("------------------------")
         print("Welcome to NOT The Game!")
@@ -34,6 +45,10 @@ class Game:
         print()
 
         print(f"Players : {PLAYERS_COUNT}")
+
+        print()
+
+        self.renderAllCards()
 
         print()
 

@@ -1,17 +1,15 @@
 # Deck
 #
-# A Deck has 100 Cards shuffeled and can be picked
+# A Deck has Cards that can be picked
 
 import unittest
-import random
 
 from card import Card
 
 
 class Deck:
-    def __init__(self) -> None:
-        self.cards = list(Card(x) for x in range(1, 101))
-        random.shuffle(self.cards)
+    def __init__(self, cards: list) -> None:
+        self.cards = cards
 
     def pick(self) -> Card:
         return self.cards.pop()
@@ -24,12 +22,18 @@ class Deck:
 
 
 class DeckTestCase(unittest.TestCase):
+    deck = Deck([Card(3)])
+
+    def testCount(self):
+        self.assertEqual(self.deck.count(), 1)
+
     def testPick(self):
-        deck = Deck()
-        for _ in range(6):
-            card = deck.pick()
-            self.assertIsInstance(card, Card)
-            # print(card.value)
+        card = self.deck.pick()
+        self.assertIsInstance(card, Card)
+        self.assertEqual(card.value, 3)
+
+    def testCountAfter(self):
+        self.assertEqual(self.deck.count(), 1)
 
 
 if __name__ == "__main__":
