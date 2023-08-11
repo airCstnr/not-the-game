@@ -27,6 +27,16 @@ class Game:
             Column(Direction.DESCENDING),
         ]
 
+    def start(self):
+        print("------------------------")
+        print("Welcome to NOT The Game!")
+        print("------------------------")
+        print()
+
+        print(f"Players : {PLAYERS_COUNT}")
+
+        print()
+
 
 # -------------------------------------------
 
