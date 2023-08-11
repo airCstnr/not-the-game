@@ -24,7 +24,11 @@ class Game:
     def __init__(self) -> None:
         self.cards = self.generateCards()
         self.deck = Deck(self.cards)
-        self.players = [Hand(MAXIMUM_CARDS_IN_HAND) for _ in range(PLAYERS_COUNT)]
+        self.players = list()
+        for _ in range(PLAYERS_COUNT):
+            hand = Hand(MAXIMUM_CARDS_IN_HAND)
+            hand.fill(self.deck)
+            self.players.append(hand)
         self.columns = [
             Column(Direction.ASCENDING),
             Column(Direction.ASCENDING),
