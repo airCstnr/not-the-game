@@ -20,6 +20,9 @@ class Deck:
     def count(self) -> int:
         return len(self.cards)
 
+    def is_empty(self) -> bool:
+        return self.count() == 0
+
 
 # -------------------------------------------
 
