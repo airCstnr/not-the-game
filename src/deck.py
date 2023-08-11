@@ -29,7 +29,7 @@ class DeckTestCase(unittest.TestCase):
         for _ in range(6):
             card = deck.pick()
             self.assertIsInstance(card, Card)
-            print(card.value)
+            # print(card.value)
 
 
 if __name__ == "__main__":
