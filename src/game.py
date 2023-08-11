@@ -36,13 +36,13 @@ class Game:
     def generateCards(self) -> list:
         return list(Card(x) for x in range(1, CARDS_COUNT + 1))
 
-    def renderAllCards(self):
+    def renderAllCards(self) -> None:
         values = [[card.value, card.state.value] for card in self.cards]
         print(tabulate(values, headers=["Card", "State"]))
         # "Available", "Drawn", "Played"
         print()
 
-    def renderBanner(self):
+    def renderBanner(self) -> None:
         print("------------------------")
         print("Welcome to NOT The Game!")
         print("------------------------")
