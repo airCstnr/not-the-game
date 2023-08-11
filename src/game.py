@@ -6,7 +6,6 @@
 #
 #
 
-import random
 import unittest
 
 from card import Card
@@ -16,6 +15,7 @@ from direction import Direction
 from hand import Hand
 
 PLAYERS_COUNT = 5
+CARDS_COUNT = 10
 
 
 class Game:
@@ -31,9 +31,7 @@ class Game:
         ]
 
     def generateCards(self) -> list:
-        cards = list(Card(x) for x in range(1, 101))
-        random.shuffle(cards)
-        return cards
+        return list(Card(x) for x in range(1, CARDS_COUNT + 1))
 
     def renderAllCards(self):
         pass
@@ -59,7 +57,7 @@ class Game:
 class GameTestCase(unittest.TestCase):
     def testGame(self):
         game = Game()
-        self.assertEqual(game.deck.count(), 100)
+        self.assertEqual(game.deck.count(), CARDS_COUNT)
 
 
 if __name__ == "__main__":

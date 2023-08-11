@@ -4,12 +4,15 @@
 
 import unittest
 
+import random
+
 from card import Card
 
 
 class Deck:
     def __init__(self, cards: list) -> None:
-        self.cards = cards
+        self.cards = cards.copy()
+        random.shuffle(self.cards)
 
     def pick(self) -> Card:
         return self.cards.pop()
