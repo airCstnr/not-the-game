@@ -8,6 +8,8 @@
 
 import unittest
 
+from tabulate import tabulate
+
 from card import Card
 from column import Column
 from deck import Deck
@@ -34,7 +36,8 @@ class Game:
         return list(Card(x) for x in range(1, CARDS_COUNT + 1))
 
     def renderAllCards(self):
-        pass
+        values = [[card.value] for card in self.cards]
+        print(tabulate(values, headers=["Card"]))
 
     def start(self):
         print("------------------------")
