@@ -22,8 +22,9 @@ class Hand:
         return len(self.cards)
 
     def fill(self, deck: Deck):
-        while self.count() < self.maximum_cards_in_hand:
-            self.draw(deck.pick())
+        while self.count() < self.maximum_cards_in_hand and not deck.is_empty():
+            card = deck.pick()
+            self.draw(card)
 
 
 # -------------------------------------------
