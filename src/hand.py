@@ -12,6 +12,9 @@ from state import State
 class Hand:
     cards = list()
 
+    def __init__(self, maximum_cards_in_hand) -> None:
+        self.maximum_cards_in_hand = maximum_cards_in_hand
+
     def draw(self, card: Card) -> None:
         card.state = State.DRAWN
         self.cards.append(card)
@@ -20,7 +23,7 @@ class Hand:
         return len(self.cards)
 
     def fill(self, deck: Deck):
-        while self.count() < 6:
+        while self.count() < self.maximum_cards_in_hand:
             self.draw(deck.pick())
 
 
