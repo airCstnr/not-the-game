@@ -36,8 +36,9 @@ class Game:
         return list(Card(x) for x in range(1, CARDS_COUNT + 1))
 
     def renderAllCards(self):
-        values = [[card.value] for card in self.cards]
-        print(tabulate(values, headers=["Card"]))
+        values = [[card.value, card.state.value] for card in self.cards]
+        print(tabulate(values, headers=["Card", "State"]))
+        # "Available", "Drawn", "Played"
 
     def start(self):
         print("------------------------")
