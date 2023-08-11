@@ -5,7 +5,7 @@
 import unittest
 
 from card import Card
-from direcion import Direction
+from direction import Direction
 
 
 class Column:
