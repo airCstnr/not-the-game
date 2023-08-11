@@ -40,20 +40,21 @@ class Game:
         values = [[card.value, card.state.value] for card in self.cards]
         print(tabulate(values, headers=["Card", "State"]))
         # "Available", "Drawn", "Played"
+        print()
 
-    def start(self):
+    def renderBanner(self):
         print("------------------------")
         print("Welcome to NOT The Game!")
         print("------------------------")
         print()
 
-        print(f"Players : {PLAYERS_COUNT}")
+    def start(self):
+        self.renderBanner()
 
+        print(f"Players : {PLAYERS_COUNT}")
         print()
 
         self.renderAllCards()
-
-        print()
 
         current_player_index = 0
         current_player = self.players[current_player_index]
@@ -74,9 +75,7 @@ class Game:
 
         self.renderAllCards()
 
-        print()
-
-        print()
+        print("------------------------")
 
 
 # -------------------------------------------
