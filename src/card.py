@@ -4,6 +4,7 @@
 
 import unittest
 
+from state import State
 
 class Card:
     class OutOfRangeException(Exception):
@@ -11,6 +12,7 @@ class Card:
 
     def __init__(self, value) -> None:
         self._setValue(value)
+        self.state = State.AVAILABLE
 
     def _setValue(self, value) -> None:
         if 1 <= value <= 100:
