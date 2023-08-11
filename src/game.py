@@ -54,6 +54,29 @@ class Game:
 
         print()
 
+        current_player_index = 0
+        current_player = self.players[current_player_index]
+
+        print(
+            f"Player {current_player_index + 1 } has "
+            f"{current_player.count()} cards."
+        )
+
+        current_player.fill(self.deck)
+
+        print(
+            f"Player {current_player_index + 1 } has "
+            f"{current_player.count()} cards."
+        )
+
+        print()
+
+        self.renderAllCards()
+
+        print()
+
+        print()
+
 
 # -------------------------------------------
 
