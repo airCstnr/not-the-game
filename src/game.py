@@ -8,13 +8,12 @@
 
 import unittest
 
-from tabulate import tabulate
-
 from card import Card
 from column import Column
 from deck import Deck
 from direction import Direction
 from hand import Hand
+from renderer import Renderer
 
 PLAYERS_COUNT = 5
 CARDS_COUNT = 10
@@ -36,18 +35,6 @@ class Game:
     def generateCards(self) -> list:
         return list(Card(x) for x in range(1, CARDS_COUNT + 1))
 
-    def renderAllCards(self) -> None:
-        values = [[card.value, card.state.value] for card in self.cards]
-        print(tabulate(values, headers=["Card", "State"]))
-        # "Available", "Drawn", "Played"
-        print()
-
-    def renderBanner(self) -> None:
-        print("------------------------")
-        print("Welcome to NOT The Game!")
-        print("------------------------")
-        print()
-
     def playTurn(self, current_player_index: int) -> None:
         current_player = self.players[current_player_index]
 
@@ -66,22 +53,22 @@ class Game:
         print()
 
     def start(self):
-        self.renderBanner()
+        Renderer.renderBanner()
 
         print(f"Players : {PLAYERS_COUNT}")
         print()
 
-        self.renderAllCards()
+        Renderer.renderAllCards(self.cards)
 
         current_player_index = 0
         self.playTurn(current_player_index)
 
-        self.renderAllCards()
+        Renderer.renderAllCards(self.cards)
 
         current_player_index = 1
         self.playTurn(current_player_index)
 
-        self.renderAllCards()
+        Renderer.renderAllCards(self.cards)
 
         print("------------------------")
 
