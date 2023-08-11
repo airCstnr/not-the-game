@@ -10,9 +10,8 @@ from state import State
 
 
 class Hand:
-    cards = list()
-
     def __init__(self, maximum_cards_in_hand) -> None:
+        self.cards = list()
         self.maximum_cards_in_hand = maximum_cards_in_hand
 
     def draw(self, card: Card) -> None:
