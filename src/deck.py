@@ -16,6 +16,9 @@ class Deck:
     def pick(self) -> Card:
         return self.cards.pop()
 
+    def count(self) -> int:
+        return len(self.cards)
+
 
 # -------------------------------------------
 
