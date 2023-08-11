@@ -48,15 +48,7 @@ class Game:
         print("------------------------")
         print()
 
-    def start(self):
-        self.renderBanner()
-
-        print(f"Players : {PLAYERS_COUNT}")
-        print()
-
-        self.renderAllCards()
-
-        current_player_index = 0
+    def playTurn(self, current_player_index: int) -> None:
         current_player = self.players[current_player_index]
 
         print(
@@ -72,6 +64,22 @@ class Game:
         )
 
         print()
+
+    def start(self):
+        self.renderBanner()
+
+        print(f"Players : {PLAYERS_COUNT}")
+        print()
+
+        self.renderAllCards()
+
+        current_player_index = 0
+        self.playTurn(current_player_index)
+
+        self.renderAllCards()
+
+        current_player_index = 1
+        self.playTurn(current_player_index)
 
         self.renderAllCards()
 
