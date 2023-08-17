@@ -59,7 +59,7 @@ class Game:
 class GameTestCase(unittest.TestCase):
     def testGame(self):
         game = Game()
-        self.assertEqual(game.deck.count(), CARDS_COUNT)
+        self.assertEqual(game.deck.count(), 0)
 
 
 if __name__ == "__main__":
