@@ -32,7 +32,7 @@ class Hand:
 
 class HandTestCase(unittest.TestCase):
     def testDraw(self):
-        hand = Hand()
+        hand = Hand(3)
         card = Card(1)
         hand.draw(card)
 
